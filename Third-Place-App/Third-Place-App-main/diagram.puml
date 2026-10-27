@@ -1,0 +1,29 @@
+@startuml
+title Website Navigation
+
+package "Frontend" {
+    [index.html] as Home
+    [login.html] as Login
+    [profile.html] as Profile
+    [search.html] as Explore
+}
+
+package "Assets" {
+    [style.css]
+    [app.js]
+}
+
+' Define how pages link to or use each other
+Home --> Index : "Clicks 'Home' link"
+Home --> Login : "Clicks 'Login' link"
+Home --> Profile : "Clicks 'Profile' link"
+Home --> Search : "Clicks 'Explore' link"
+
+About --> Home : "Back to Home"
+Contact --> Home : "Submits form / Returns Home"
+
+' Showing asset inclusion
+Home ..> [style.css] : "loads"
+Home ..> [app.js] : "loads"
+
+@enduml
